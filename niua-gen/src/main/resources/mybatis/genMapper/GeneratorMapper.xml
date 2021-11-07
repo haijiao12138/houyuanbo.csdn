@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.niua.gen.mapper.GeneratorMapper">
+    <select id="quertyAllTableName" resultType="java.lang.String">
+        show tables
+    </select>
+    <select id="queryAllById" resultType="java.lang.String">
+        SELECT
+            table_name
+        FROM sys_generator
+        WHERE id = #{Id}
+    </select>
+
+</mapper>

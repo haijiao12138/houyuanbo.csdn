@@ -1,0 +1,23 @@
+# 代码生成
+gen: 
+  # 作者
+  author: niua
+  # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
+  packageName: tech.niua.admin
+  suffixPath: /fileSuffix
+  # 自动去除表前缀，默认是false
+  autoRemovePre: false
+  # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
+  tablePrefix: sys_
+  # 数据库设置
+  url: ${spring.datasource.url}
+  # 用户名
+  username: ${spring.datasource.username}
+  # 密码
+  password: ${spring.datasource.password}
+  # 驱动
+  driverClassName: ${spring.datasource.driverClassName}
+  # 代码生成位置
+  outPath: /Users/wangzhen/Desktop/demo/
+
+

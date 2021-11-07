@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.niua.admin.operlog.mapper.SysOperLogMapper">
+    <resultMap id="BaseResultMap" type="tech.niua.admin.operlog.domain.SysOperLog">
+            <id column="id" jdbcType="BIGINT" property="id" />
+            <id column="operation" jdbcType="VARCHAR" property="operation" />
+            <id column="business_type" jdbcType="INTEGER" property="businessType" />
+            <id column="method" jdbcType="VARCHAR" property="method" />
+            <id column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+            <id column="oper_name" jdbcType="VARCHAR" property="operName" />
+            <id column="params" jdbcType="VARCHAR" property="params" />
+            <id column="ip" jdbcType="VARCHAR" property="ip" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, operation, business_type, method, create_time, oper_name, params, ip
+    </sql>
+    <!--注意:在打开下面注释的时候，在执行添加和更新操作时，一定要添加事物，否则会造成无法添加和更新-->
+    <!--
+ <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_oper_log
+       where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from  sys_oper_log
+       where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tech.niua.admin.operlog.domain.SysOperLog">
+    insert into sys_oper_log (id, operation, business_type, method, create_time, oper_name, params, ip)
+    values (
+         operation = #{operation,jdbcType=VARCHAR},
+         business_type = #{businessType,jdbcType=INTEGER},
+         method = #{method,jdbcType=VARCHAR},
+         create_time = #{createTime,jdbcType=TIMESTAMP},
+         oper_name = #{operName,jdbcType=VARCHAR},
+         params = #{params,jdbcType=VARCHAR},
+         ip = #{ip,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="tech.niua.admin.operlog.domain.SysOperLog">
+    insert into sys_oper_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operName != null">
+        oper_name,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operation != null">
+        operation = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operName != null">
+        oper_name = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tech.niua.admin.operlog.domain.SysOperLog">
+    update sys_oper_log
+    <set>
+       <if test="operation != null">
+         operation = #{operation,jdbcType=VARCHAR},
+      </if>
+       <if test="businessType != null">
+         business_type = #{businessType,jdbcType=INTEGER},
+      </if>
+       <if test="method != null">
+         method = #{method,jdbcType=VARCHAR},
+      </if>
+       <if test="createTime != null">
+         create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+       <if test="operName != null">
+         oper_name = #{operName,jdbcType=VARCHAR},
+      </if>
+       <if test="params != null">
+         params = #{params,jdbcType=VARCHAR},
+      </if>
+       <if test="ip != null">
+         ip = #{ip,jdbcType=VARCHAR},
+      </if>
+    </set>
+       where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tech.niua.admin.operlog.domain.SysOperLog">
+    update sys_oper_log
+    set
+        operation = #{operation,jdbcType=VARCHAR},
+        business_type = #{businessType,jdbcType=INTEGER},
+        method = #{method,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        oper_name = #{operName,jdbcType=VARCHAR},
+        params = #{params,jdbcType=VARCHAR},
+        ip = #{ip,jdbcType=VARCHAR},
+       where id = #{id,jdbcType=BIGINT}
+  </update>
+-->
+</mapper>

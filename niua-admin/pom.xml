@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>nuia-easy</artifactId>
+        <groupId>tech.niua</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>niua-admin</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--导入权限模块-->
+        <dependency>
+            <groupId>tech.niua</groupId>
+            <artifactId>niua-auth</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <!--导入核心配置-->
+        <dependency>
+            <groupId>tech.niua</groupId>
+            <artifactId>niua-core</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <!--导入公共配置-->
+        <dependency>
+            <groupId>tech.niua</groupId>
+            <artifactId>niua-common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+
+        <!--代码自动生成-->
+        <dependency>
+            <groupId>tech.niua</groupId>
+            <artifactId>niua-gen</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <!--任务调度-->
+        <dependency>
+            <groupId>tech.niua</groupId>
+            <artifactId>niua-quartz</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.1.RELEASE</version>
+                <configuration>
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-war-plugin</artifactId>-->
+<!--                <version>3.1.0</version>-->
+<!--                <configuration>-->
+<!--                    <failOnMissingWebXml>false</failOnMissingWebXml>-->
+<!--                    <warName>${project.artifactId}</warName>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
+
+</project>

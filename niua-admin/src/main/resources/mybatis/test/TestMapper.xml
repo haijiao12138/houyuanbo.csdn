@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.niua.admin.test.mapper.TestMapper">
+    <resultMap id="BaseResultMap" type="tech.niua.admin.test.domain.Test">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <id column="name" jdbcType="VARCHAR" property="name" />
+        <id column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, name, create_time
+    </sql>
+    <!--注意:在打开下面注释的时候，在执行添加和更新操作时，一定要添加事物，否则会造成无法添加和更新-->
+    <!--
+ <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_test
+       where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from  t_test
+       where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tech.niua.admin.test.domain.Test">
+    insert into t_test (id, name, create_time)
+    values (
+         name = #{name,jdbcType=VARCHAR},
+         create_time = #{createTime,jdbcType=TIMESTAMP}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="tech.niua.admin.test.domain.Test">
+    insert into t_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tech.niua.admin.test.domain.Test">
+    update t_test
+    <set>
+       <if test="name != null">
+         name = #{name,jdbcType=VARCHAR},
+      </if>
+       <if test="createTime != null">
+         create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+       where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tech.niua.admin.test.domain.Test">
+    update t_test
+    set
+        name = #{name,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+       where id = #{id,jdbcType=BIGINT}
+  </update>
+-->
+</mapper>

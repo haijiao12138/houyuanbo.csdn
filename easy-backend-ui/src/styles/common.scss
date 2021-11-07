@@ -1,0 +1,149 @@
+.lz-relative,
+.lz-rela {
+	position: relative;
+}
+
+.lz-absolute,
+.lz-abso {
+	position: absolute;
+}
+
+.lz-font-xs {
+	font-size: 10px;
+}
+
+.lz-font-sm {
+	font-size: 12px;
+}
+
+.lz-font-md {
+	font-size: 14px;
+}
+
+.lz-font-lg {
+	font-size: 16px;
+}
+
+.lz-font-xl {
+	font-size: 18px;
+}
+
+.lz-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.lz-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.lz-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.lz-align-center {
+	align-items: center;
+}
+
+.lz-align-top {
+	align-items: flex-start;
+}
+
+.lz-align-bottom {
+	align-items: flex-end;
+}
+
+.lz-justify-center {
+	justify-content: center;
+}
+
+.lz-justify-left {
+	justify-content: flex-start;
+}
+
+.lz-justify-right {
+	justify-content: flex-end;
+}
+
+.lz-justify-between {
+	justify-content: space-between;
+}
+
+.lz-justify-around {
+	justify-content: space-around;
+}
+
+.lz-text-left {
+	text-align: left;
+}
+
+.lz-text-center {
+	text-align: center;
+}
+
+.lz-text-right {
+	text-align: right;
+}
+
+//垂直显示
+.lz-flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+	.lz-flex-#{$i} {
+		flex: $i;
+	}
+}
+
+// 定义字体(px)单位，小于20都为px单位字体
+@for $i from 9 to 40 {
+	.lz-font-#{$i} {
+		font-size: $i + px;
+	}
+}
+
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：lz-margin-30或者lz-m-30
+		.lz-margin-#{$i}, .lz-m-#{$i} {
+			margin: $i + px!important;
+		}
+		
+		// 得出：lz-padding-30或者lz-p-30
+		.lz-padding-#{$i}, .lz-p-#{$i} {
+			padding: $i + px!important;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： lz-m-l-30
+			// 定义外边距
+			.lz-m-#{$short}-#{$i} {
+				margin-#{$long}: $i + px!important;
+			}
+			
+			// 定义内边距
+			.lz-p-#{$short}-#{$i} {
+				padding-#{$long}: $i + px!important;
+			}
+			
+			// 完整版，结果如：lz-margin-left-30
+			// 定义外边距
+			.lz-margin-#{$long}-#{$i} {
+				margin-#{$long}: $i + px!important;
+			}
+			
+			// 定义内边距
+			.lz-padding-#{$long}-#{$i} {
+				padding-#{$long}: $i + px!important;
+			}
+		}
+	}
+}
+
